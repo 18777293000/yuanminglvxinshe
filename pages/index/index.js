@@ -21,6 +21,7 @@ Page({
         scrollNavbarLeft: 0,
         currentChannelIndex: 0,
         articlesHide: 1,
+        //正常时间获取数组
         time:[],
         //获取videolist
         page: 1,
@@ -409,4 +410,9 @@ Page({
         });
         console.log(1,this);
       },
+      more:function(){
+          wx.redirectTo({
+            url: '../video/video-list',
+          })
+      }
 });
