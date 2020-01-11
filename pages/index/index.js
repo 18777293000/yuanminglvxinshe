@@ -1,4 +1,5 @@
 var quickNavigation = require("./../../components/quick-navigation/quick-navigation.js"), interval = 0, page_first_init = !0, timer = 1, fullScreen = !1;
+var is_loading_more = !1, is_no_more = !1;
 
 Page({
     data: {
@@ -11,7 +12,7 @@ Page({
         time: 0,
         buy: !1,
         opendate: !1,
-
+        //获取topiclist
         backgrop: [ "navbar-item-active" ],
         navbarArray: [],
         navbarShowIndexArray: 0,
@@ -20,7 +21,14 @@ Page({
         scrollNavbarLeft: 0,
         currentChannelIndex: 0,
         articlesHide: 1,
-        time:[]
+        time:[],
+        //获取videolist
+        page: 1,
+        video_list: [],
+        url: "",
+        hide: "hide",
+        show: !1,
+        animationData: {}
     },
     onLoad: function(t) {
             getApp().page.onLoad(this, t), this.loadData(t), quickNavigation.init(this);
@@ -29,9 +37,11 @@ Page({
              page: 1,
              reload: !0,
             });
+            this.loadMoreGoodsList(), is_no_more = is_loading_more = !1;
             setTimeout(() => {
                 console.log(1,this);
             }, 1000);
+            
     },
     suspension: function() {
         var s = this;
@@ -91,7 +101,25 @@ Page({
                 buy_user: ""
             });
         }), e.notice();
-        console.log(this);
+
+        setTimeout(() => {
+            var a = e.data.list.length;
+            for(var i=0;i<a;i++){
+                var b=e.data.list[i].addtime;
+                var dateTime = new Date(parseInt(b) * 1000)
+                var year = dateTime.getFullYear();
+                var month = dateTime.getMonth() + 1;
+                var day = dateTime.getDate();
+                var hour = dateTime.getHours();
+                var minute = dateTime.getMinutes();
+                var timeSpanStr = year + '-' + month + '-' + day + ' ' + hour + ':' + minute;
+                e.setData({
+                    time: e.data.time.concat(timeSpanStr)
+                });
+                //console.log(2,time[0]);
+            }
+            //console.log(2,this);
+        }, 1000);
     },
     onPullDownRefresh: function() {
         getApp().getStoreData(), clearInterval(timer), this.loadData();
@@ -343,5 +371,42 @@ Page({
                 });
             }
         }));
+      },
+
+      loadMoreGoodsList: function() {
+        var t = this;
+        if (!is_loading_more) {
+            t.setData({
+                show_loading_bar: !0
+            }), is_loading_more = !0;
+            var i = t.data.page;
+            getApp().request({
+                url: getApp().api.default.video_list,
+                data: {
+                    page: i
+                },
+                success: function(o) {
+                    0 == o.data.list.length && (is_no_more = !0);
+                    var a = t.data.video_list.concat(o.data.list);
+                    t.setData({
+                        video_list: a,
+                        page: i + 1
+                    });
+                },
+                complete: function() {
+                    is_loading_more = !1, t.setData({
+                        show_loading_bar: !1
+                    });
+                }
+            });
+        }
+      },
+      play: function(o) {
+        var a = o.currentTarget.dataset.index;
+        getApp().core.createVideoContext("video_" + this.data.show_video).pause(), this.setData({
+            show_video: a,
+            show: !0
+        });
+        console.log(1,this);
       },
 });

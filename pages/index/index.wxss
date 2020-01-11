@@ -1,5 +1,6 @@
 @import "../../components/quick-navigation/quick-navigation.wxss";
 @import"../topic-list/topic-list.wxss";
+@import"../video/video-list.wxss";
 
 .banner {
     height: 360rpx;
