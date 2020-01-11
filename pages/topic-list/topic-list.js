@@ -23,6 +23,7 @@ Page({
                 t.setData({
                     windowWidth: a.windowWidth
                 });
+                //console.log(2,a);
             }
         });
     },
@@ -74,7 +75,6 @@ Page({
     onShow: function() {
         getApp().page.onShow(this);
         var t = this;
-        console.log(1,t);
         setTimeout(() => {
             var a = t.data.list.length;
             for(var i=0;i<a;i++){
@@ -91,7 +91,7 @@ Page({
                 });
                 //console.log(2,time[0]);
             }
-            
+            console.log(2,this);
         }, 1000);
         
     },

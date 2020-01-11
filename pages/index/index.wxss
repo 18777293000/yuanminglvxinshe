@@ -1,4 +1,5 @@
 @import "../../components/quick-navigation/quick-navigation.wxss";
+@import"../topic-list/topic-list.wxss";
 
 .banner {
     height: 360rpx;
@@ -819,4 +820,11 @@
     height: 80rpx;
     background: #fff;
     margin-bottom: 4rpx;
+}
+.navbar-item-more {
+    position: relative;
+    left: 10rpx;
+    display: inline-block;
+    margin: auto 32rpx;
+    height: 86rpx;
 }
