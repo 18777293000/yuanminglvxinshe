@@ -1,0 +1,80 @@
+<view style="background:#fff;padding-top:10px;height:97%">
+    <view class="comment-count flex-row">
+                              <view  class='flex-grow-1 flex-x-center flex-col {{menuTapCurrent=="0"?"active":"noactive"}}' data-current="0" catchtap='menuTap'>全部</view>
+                              <view  class='flex-grow-1 flex-x-center flex-col {{menuTapCurrent=="1"?"active":"noactive"}}' data-current="1" catchtap='menuTap'>好评</view>
+                              <view  class='flex-grow-1 flex-x-center flex-col {{menuTapCurrent=="2"?"active":"noactive"}}' data-current="2" catchtap='menuTap'>中评</view>
+                              <view  class='flex-grow-1 flex-x-center flex-col {{menuTapCurrent=="3"?"active":"noactive"}}' data-current="3" catchtap='menuTap'>差评</view>                        
+    </view> 
+    <view hidden="{{menuTapCurrent!='0'}}">
+      <view class="comment-item flex-row"  wx:for="{{comment_list}}" wx:key="{{item.id}}" >
+                                            <view class="flex-grow-0" style="overflow: visible">
+                                                <image mode="aspectFill" src="{{item.avatar_url}}" style="width: 70rpx;height: 70rpx;border-radius: 1000rpx"></image>
+                                            </view>
+                                            <view class="flex-grow-1">
+                                                <view class="flex-row mb-20">
+                                                    <view class="flex-grow-1 flex-y-center nickname">{{item.nickname}}</view>
+                                                    <view class="flex-grow-1 " style="font-size:9pt;color:#999999;text-align:right;">{{item.addtime}}</view>
+                                                </view>
+                                                
+                                                <view class="mb-20" style="width:100%;word-wrap: break-word;word-break: break-all;overflow: hidden;" >{{item.content}}</view>
+                                                <view class="pic-list" wx:if="{{item.pic_list&&item.pic_list.length>0}}">
+                                                    <image bindtap="commentPicView" style="border-radius: 10px;width:60px;height:60px;margin-left:15rpx;margin-top: 8rpx;display: inline-block;" data-index="{{index}}" data-pic-index="{{pic_index}}"src="{{item}}" wx:for="{{item.pic_list}}" wx:for-index="pic_index" wx:key="{{item.id}}"></image>
+                                                </view>
+                                            </view>
+      </view>
+    </view>
+    <view hidden="{{menuTapCurrent!='1'}}">
+      <view class="comment-item flex-row"  wx:for="{{comment_list}}" wx:key="{{item.id}}" wx:if="{{item.score==3}}">
+                                            <view class="flex-grow-0" style="overflow: visible">
+                                                <image mode="aspectFill" src="{{item.avatar_url}}" style="width: 70rpx;height: 70rpx;border-radius: 1000rpx"></image>
+                                            </view>
+                                            <view class="flex-grow-1">
+                                                <view class="flex-row mb-20">
+                                                    <view class="flex-grow-1 flex-y-center nickname">{{item.nickname}}</view>
+                                                    <view class="flex-grow-1 " style="font-size:9pt;color:#999999;text-align:right;">{{item.addtime}}</view>
+                                                </view>
+                                                
+                                                <view class="mb-20" style="width:100%;word-wrap: break-word;word-break: break-all;overflow: hidden;" >{{item.content}}</view>
+                                                <view class="pic-list" wx:if="{{item.pic_list&&item.pic_list.length>0}}">
+                                                    <image bindtap="commentPicView" style="border-radius: 10px;width:60px;height:60px;margin-left:15rpx;margin-top: 8rpx;display: inline-block;" data-index="{{index}}" data-pic-index="{{pic_index}}"src="{{item}}" wx:for="{{item.pic_list}}" wx:for-index="pic_index" wx:key="{{item.id}}"></image>
+                                                </view>
+                                            </view>
+      </view>
+    </view> 
+    <view hidden="{{menuTapCurrent!='2'}}">
+      <view class="comment-item flex-row"  wx:for="{{comment_list}}" wx:key="{{item.id}}" wx:if="{{item.score==2}}">
+                                            <view class="flex-grow-0" style="overflow: visible">
+                                                <image mode="aspectFill" src="{{item.avatar_url}}" style="width: 70rpx;height: 70rpx;border-radius: 1000rpx"></image>
+                                            </view>
+                                            <view class="flex-grow-1">
+                                                <view class="flex-row mb-20">
+                                                    <view class="flex-grow-1 flex-y-center nickname">{{item.nickname}}</view>
+                                                    <view class="flex-grow-1 " style="font-size:9pt;color:#999999;text-align:right;">{{item.addtime}}</view>
+                                                </view>
+                                                
+                                                <view class="mb-20" style="width:100%;word-wrap: break-word;word-break: break-all;overflow: hidden;" >{{item.content}}</view>
+                                                <view class="pic-list" wx:if="{{item.pic_list&&item.pic_list.length>0}}">
+                                                    <image bindtap="commentPicView" style="border-radius: 10px;width:60px;height:60px;margin-left:15rpx;margin-top: 8rpx;display: inline-block;" data-index="{{index}}" data-pic-index="{{pic_index}}"src="{{item}}" wx:for="{{item.pic_list}}" wx:for-index="pic_index" wx:key="{{item.id}}"></image>
+                                                </view>
+                                            </view>
+      </view>
+    </view>
+    <view hidden="{{menuTapCurrent!='3'}}">
+      <view class="comment-item flex-row"  wx:for="{{comment_list}}" wx:key="{{item.id}}" wx:if="{{item.score==1}}">
+                                            <view class="flex-grow-0" style="overflow: visible">
+                                                <image mode="aspectFill" src="{{item.avatar_url}}" style="width: 70rpx;height: 70rpx;border-radius: 1000rpx"></image>
+                                            </view>
+                                            <view class="flex-grow-1">
+                                                <view class="flex-row mb-20">
+                                                    <view class="flex-grow-1 flex-y-center nickname">{{item.nickname}}</view>
+                                                    <view class="flex-grow-1 " style="font-size:9pt;color:#999999;text-align:right;">{{item.addtime}}</view>
+                                                </view>
+                                                
+                                                <view class="mb-20" style="width:100%;word-wrap: break-word;word-break: break-all;overflow: hidden;" >{{item.content}}</view>
+                                                <view class="pic-list" wx:if="{{item.pic_list&&item.pic_list.length>0}}">
+                                                    <image bindtap="commentPicView" style="border-radius: 10px;width:60px;height:60px;margin-left:15rpx;margin-top: 8rpx;display: inline-block;" data-index="{{index}}" data-pic-index="{{pic_index}}"src="{{item}}" wx:for="{{item.pic_list}}" wx:for-index="pic_index" wx:key="{{item.id}}"></image>
+                                                </view>
+                                            </view>
+      </view>
+    </view>                                                         
+</view> 

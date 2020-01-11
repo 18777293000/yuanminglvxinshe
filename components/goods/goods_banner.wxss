@@ -1,0 +1,12 @@
+.goods-image-swiper {
+    height: 500rpx;
+}
+
+.goods-image-swiper image {
+    height: 500rpx;
+}
+
+.goods-image {
+    width: 100%;
+    height: 100%;
+}

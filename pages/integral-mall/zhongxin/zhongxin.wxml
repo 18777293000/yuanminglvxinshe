@@ -1,0 +1,81 @@
+<view class="page">
+  <view style="margin:20px 5%;background-color: #f3f3f3;border-radius: 10px;">
+     <view>
+        <view class="flex-grow-1 flex-y-center flex-row tou">
+                                <text style="font-weight: bold;">{{user_info.nickname}}</text>
+            <view class="level-name flex-y-bottom flex-x-center">
+              <view class="flex-y-center " style="height:100%;">{{user_info.level_name||'普通用户'}}</view>
+            </view>
+        </view>
+        <view style="padding: 10px 20px 5px;font-size: 12px;">适用门店：<text style="color:#9A9A9A">{{shop.name}}</text></view>
+        <view class="tou wei" wx:if="{{user_info.level==1}}">
+            <view>剩余权限：全场商品享<text style="color:#f00">{{level_list[0].discount}}折</text>优惠</view>
+            <view>赠送免运费次数：<text style="color:#f00">{{level_list[0].post_free_times}}次</text></view>
+            <view>当前剩余：<text style="color:#f00">{{user_info.integral}}次</text></view>
+            <view>24小时专线服务</view>
+            
+            <view style="margin:10px 0;">有效期至：<text style="color:#9A9A9A">{{user_info.level_end_time}}</text></view>
+        </view>
+        <view class="tou wei" wx:elif="{{user_info.level==2}}">
+            
+            <view>剩余权限：全场商品享<text style="color:#f00">{{level_list[1].discount}}2折</text>优惠</view>
+            <view>赠送免运费次数：<text style="color:#f00">{{level_list[1].post_free_times}}次</text></view>
+            <view>当前剩余：<text style="color:#f00">{{user_info.integral}}次</text></view>
+            <view>24小时专线服务</view>
+            
+            <view style="margin:10px 0;">有效期至：<text style="color:#9A9A9A">{{user_info.level_end_time}}</text></view>
+        </view>
+        <view class="tou wei" wx:elif="{{user_info.level==3}}">
+            
+            <view>剩余权限：全场商品享<text style="color:#f00">{{level_list[2].discount}}折</text>优惠</view>
+            <view>赠送免运费次数：<text style="color:#f00">{{level_list[2].post_free_times}}次</text></view>
+            <view>当前剩余：<text style="color:#f00">{{user_info.integral}}次</text></view>
+            <view>24小时专线服务</view>
+            
+            <view style="margin:10px 0;">有效期至：<text style="color:#9A9A9A">{{user_info.level_end_time}}</text></view>
+        </view>
+        <view class="tou wei" wx:elif="{{user_info.level==4}}">
+            
+            <view>剩余权限：全场商品享<text style="color:#f00">{{level_list[3].discount}}折</text>优惠</view>
+            <view>赠送免运费次数：<text style="color:#f00">{{level_list[3].post_free_times}}次</text></view>
+            <view>当前剩余：<text style="color:#f00">{{user_info.integral}}次</text></view>
+            <view>24小时专线服务</view>
+            
+            <view style="margin:10px 0;">有效期至：<text style="color:#9A9A9A">{{user_info.level_end_time}}</text></view>
+        </view>
+        <view class="tou wei" wx:elif="{{user_info.level==5}}">
+            
+            <view>剩余权限：全场商品享<text style="color:#f00">{{level_list[4].discount}}折</text>优惠</view>
+            <view>赠送免运费次数：<text style="color:#f00">{{level_list[4].post_free_times}}次</text></view>
+            <view>当前剩余：<text style="color:#f00">{{user_info.integral}}次</text></view>
+            <view>24小时专线服务</view>
+            
+            <view style="margin:10px 0;">有效期至：<text style="color:#9A9A9A">{{user_info.level_end_time}}</text></view>
+        </view>
+        <view class="tou wei" wx:elif="{{user_info.level==6}}">
+            
+            <view>剩余权限：全场商品享<text style="color:#f00">{{level_list[5].discount}}折</text>优惠</view>
+            <view>赠送免运费次数：<text style="color:#f00">{{level_list[5].post_free_times}}次</text></view>
+            <view>当前剩余：<text style="color:#f00">{{user_info.integral}}次</text></view>
+            <view>24小时专线服务</view>
+            
+            <view style="margin:10px 0;">有效期至：<text style="color:#9A9A9A">{{user_info.level_end_time}}</text></view>
+        </view>
+        
+        <view class="tou wei" wx:else>
+           
+            <view>剩余权限：全场商品享<text style="color:#f00">无</text>优惠</view>
+            <view>赠送免运费次数：<text style="color:#f00">0次</text></view>
+            <view>当前剩余：<text style="color:#f00">0次</text></view>
+            <view>无特殊服务</view>
+            
+            <view style="margin:10px 0;">有效期：<text style="color:#9A9A9A">无</text></view>
+        </view>
+      </view>
+  </view>
+  <view class="btn">
+      <navigator style="padding:10px;height:40px;" url="../add/add">
+          会员续费
+      </navigator>
+  </view> 
+</view>

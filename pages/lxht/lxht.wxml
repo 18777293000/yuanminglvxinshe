@@ -1,0 +1,8 @@
+<view style="width:100%;height:100%;"> 
+  <swiper circular="true" class="banner">
+            <swiper-item wx:for="{{ctt_list}}" wx:key="{{item}}">
+                    <image class="slide-image" mode="aspectFill" src="{{item.ctt_url}}"></image>
+            </swiper-item>
+  </swiper>
+    <!-- <view bindtap="saveImgToLocal" class="xz flex-x-center flex-y-center">下载到本地</view> -->
+</view> 

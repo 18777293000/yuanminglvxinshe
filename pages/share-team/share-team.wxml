@@ -1,0 +1,86 @@
+<view class="page">
+    <include src="/components/common/common"></include>
+    <include src="/components/header/header"></include>
+    <view class="body after-navber">
+        <view class="info">
+            <view style="background-color: #E24F55;width: 100%;height: 300rpx;border-bottom-right-radius: 50px;border-bottom-left-radius: 50px;">
+              <view style="border-radius: 10px;width: 90%;height: 350rpx;background-color: #fff;padding: 0 24rpx 0 24rpx;color: #000;margin:0 5%;">
+                <view style=" padding-bottom: 20rpx;">
+                        <view style="width:100%;text-align: center;">
+                            <image style="width: 160rpx;height: 160rpx;border-radius: 160rpx;" src="{{__user_info.avatar_url}}"></image>
+                        </view>
+                        <view style="width:100%;text-align: center;" class="info-block">
+                            <view class="font-size: 13pt;margin-bottom: 30rpx;">{{__user_info.nickname}}</view>
+                        </view>
+                </view>
+                <view style=" width: 100%;margin-bottom: 16rpx;" class="flex-row">
+                    <view class="flex-grow-1 flex-x-center">
+                        <view class="text-more">
+                            <view class="text-more" style="color:#f00;margin-bottom: 16rpx;">{{first_count}}</view>
+                            <view class="text-more" style="color:#999;">分享人数</view>
+                        </view>
+                    </view>
+
+                    <view style="border-right: 1rpx #eee solid;" class="flex-grow-1 flex-x-center">
+                        <view class="text-more">
+                            <view class="text-more" style="color:#f00;margin-bottom: 16rpx;">{{total_price}}</view>
+                            <view class="text-more" style="color:#999;">获得佣金</view>
+                        </view>
+                    </view>
+
+                    <view class="flex-grow-1 flex-x-center">
+                        <view class="text-more">
+                            <view class="text-more" style="color:#f00;margin-bottom: 16rpx;">{{order_money_un}}</view>
+                            <view class="text-more" style="color:#999;">待结算佣金</view>
+                        </view>
+                    </view>
+                </view>
+              </view> 
+            </view>
+        <view class="tou flex-row">
+            <view style="text-align: center;width: 40%;border-right: 1rpx #eee solid;" class=" flex-x-center">
+                  <view class="text-more"> 
+                    <view class="text-more text">用户名</view>
+                </view>
+            </view>
+            <view style="text-align: center;width: 30%;border-right: 1rpx #eee solid;" class="flex-x-center">
+                <view class="text-more">
+                    <view class="text-more text">获得佣金</view>
+                </view>
+            </view>
+            <view style="text-align: center;width: 30%;" class="flex-x-center">
+                <view class="text-more">
+                    
+                    <view class="text-more text">待结算佣金</view>
+                </view>
+            </view>
+        </view>
+            <view class="info-content" style="{{share_setting.level==1?'padding-top:0':''}}">
+                <view class="info-label flex-y-center flex-row" wx:for="{{list}}" wx:key="{{item.id}}">
+                    <view class="info-up flex-y-center flex-row " style="text-align: center;width: 40%">
+                        <view class="info-img flex-grow-0">
+                            <image class="img" src="{{item.avatar_url}}"></image>
+                        </view>
+                        <view class="info-text flex-grow-1">
+                            <view class="info-name flex-row">
+                                <view class="flex-grow-0 flex-y-center text-more" >{{item.nickname}}</view>
+                            </view>
+                            <view class="info-time flex-y-center">{{item.time}}</view>
+                        </view>
+                    </view>
+                    <view style="text-align: center;width: 30%;color:#3FB232">{{item.total_price}}</view>
+                    <view style="text-align: center;width: 30%;color:#FF9200">{{item.order_money_un}}</view>
+                </view>
+            </view>
+            <view class="info-footer flex-row" wx:if="{{no_more}}">
+                <view class="info-before">
+                    <view class="info-border"></view>
+                </view>
+                <view class="info-after">
+                    <view class="info-border"></view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <include src="/components/footer/footer"></include>
+</view>

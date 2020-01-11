@@ -1,0 +1,30 @@
+.page{
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+}
+.tx{
+  width: 100%;
+  height: 80px;
+  border-bottom: 1px #f2f2f2 solid;
+}
+.tx .img{
+  width: 60px;
+    height: 60px;
+    border-radius: 100px;
+    border: 1px solid #fff;
+    margin-left: 25px;
+}
+.ge{
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px #f2f2f2 solid;
+}
+.an{
+  background-color: #F03E4F;
+  border: 1px #F03E4F solid;
+  border-radius: 20px;
+  height: 40px;
+  width: 100%;
+  color: #fff;
+}

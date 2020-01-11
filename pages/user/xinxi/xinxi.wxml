@@ -1,0 +1,18 @@
+<form bindsubmit="formSubmit">
+  <view class="page">
+  <view style="padding:10px;">
+    <view class="tx flex-y-center" >
+      头像 <image class="img" mode="aspectFitf" src="{{user_info.avatar_url}}"></image>
+    </view>
+    <view  class="ge flex-y-center">
+    <text style="width:20%">昵称</text><input  name="name"  style="width:80%" placeholder="{{user_info.nickname}}"></input>
+    </view>
+    <view class="ge flex-y-center">
+    <text style="width:20%">手机号</text>
+    <input  style="width:60%" disabled="disabled" placeholder="{{user_info.binding}}"></input>
+    <button style="width:20%;background-color: #F03E4F;border: 1px #F03E4F solid;border-radius: 20px;color: #fff;" bindtap="bangding">绑定</button>
+    </view>
+       <button class="an flex-y-center flex-x-center" formType="submit">提交</button>
+  </view>
+  </view>
+</form>

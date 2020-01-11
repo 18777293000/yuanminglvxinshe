@@ -1,0 +1,44 @@
+<view class="pege">
+  <view >
+  <image class="datu" src="image/kefu.jpg"></image>
+  <view style="position: absolute;color:#FFF; margin: 5% 10%;top:0">
+  <text style="font-size:30px;">用心聆听
+  你的声音</text>
+  <view style="border: 1px #fff solid;width:40%;margin:10px 0"></view>
+  <text style="font-size:15px;">竭诚解决您的问题</text>
+  </view>
+
+  <view bindtap='call' style="border-radius: 10px;background-color: #fff;height: 90px;margin:10px 5%;display:flex">
+  <view style="border-right: 1px #000 dashed;width:140rpx;margin:6% 5% 6% 10%;">
+  <image style="width:  40px;height: 40px;" src="image/dianhua.png"></image></view>
+  <view style="width:55%;margin:6% 0;"><view><text style="font-weight: 600">24小时服务热线</text></view>
+  <text style="color:#999">{{contact_tel}}</text></view>
+  </view>
+  </view>
+
+  <view style="border-radius: 10px;background-color: #fff;height: 90px;margin:10px 5%;display:flex">
+  <view style="border-right: 1px #000 dashed;width:140rpx;margin:6% 5% 6% 10%;">
+  <image style="width:40px;height: 30px;margin:10px 0 0;" src="image/weixin.png"></image></view>
+  <view style="width:60%;margin:6% 0;">
+    <navigator style="display:flex" url="/pages/user/ewm/ewm">
+  <view style="width:100%"><view><text style="font-weight: 600">商家微信</text></view>
+  <text style="color:#999;font-size:13px;">识别二维码，关注商家微信</text></view>
+  <image style="width:5px;height:10px;margin:12% 0 13% 1%" src="image/jinru.png"></image>
+  </navigator>
+ </view>
+ </view>
+
+  <view style="border-radius: 10px;background-color: #fff;height: 90px;margin:10px 5%;display:flex">
+  <view style="border-right: 1px #000 dashed;width:140rpx;margin:6% 5% 6% 10%;">
+  <image style="width:  40px;height: 40px;" src="image/dizhi.png"></image></view>
+  <view style="width:60%;margin:6% 0;">
+    <navigator style="display:flex" url="/pages/user/ditu/ditu">
+  <view  style="width:100%"><view><text style="font-weight: 600">店铺地址</text></view>
+  <text style="color:#999;font-size:13px;">{{quick_map.address}}</text></view>
+  <image style="width:5px;height:10px;margin:12% 0 13% 1% " src="image/jinru.png"></image>
+  </navigator>
+  </view>
+  
+  
+  </view>
+  </view>

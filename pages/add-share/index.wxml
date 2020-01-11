@@ -1,0 +1,115 @@
+<view class="page">
+    <include src="/components/common/common"></include>
+    <include src="/components/header/header"></include>
+    <view class="body after-navber">
+        <view class="{{show_modal?'no-scroll':''}}">
+            <view class="step1" wx:if="{{__user_info.is_distributor==0}}">
+                <view class="info">
+                    <view class="info-label flex-row">
+                        <view class="flex-y-center" style="color:#ff0000;font-size:12px;">分销商特权</view>
+                    </view>
+                    <view class="info-label info-height flex-row">
+                        <view class="flex-y-center">
+                            <image class="info-icon" src="/images/fen.png"></image>
+                        </view>
+                        <view class="info-block">
+                            <view class="info-top bold">独立分销码</view>
+                            <view class="info-bottom"style="color:#999">拥有自己独立的推广二维码，分成明确</view>
+                        </view>
+                    </view>
+                    <view class="info-label info-height flex-row">
+                        <view class="flex-y-center">
+                            <image class="info-icon" src="/images/fan.jpg"></image>
+                        </view>
+                        <view class="info-block">
+                            <view class="info-top bold">分销返利</view>
+                            <view class="info-bottom"style="color:#999">成为分销商后卖出商品，您可以获得佣金</view>
+                        </view>
+                    </view>
+                    <view class="info-label info-height flex-row">
+                        <view class="flex-y-center info-block"style="color:#999;font-size:12px;" >分销佣金由平台方同意设置,分销商无需囤货、发货、占用资源,发展的用户参与永久分成。</view>
+                    </view>
+                </view>
+                <form bindsubmit="formSubmit" reportSubmit="true">
+                    <view class="info">
+                        <view class="info-label flex-row">
+                            <view class="flex-y-center" style="color:#ff0000;font-size:12px;">
+                               完善一下信息，申请分销
+                            </view>
+                        </view>   
+                        <view class="info-label info-content flex-row">
+                            <view class="info-left flex-grow-0 flex-y-center required">姓名</view>
+                            <view class="info-right flex-grow-1 flex-row flex-y-center">
+                                <input  name="name"  style="width:100%" value="{{form.name}}"></input>
+                            </view>
+                        </view>
+                        <view class="info-label info-content flex-row">
+                            <view class="info-left flex-grow-0 flex-y-center required">手机号</view>
+                            <view class="info-right flex-grow-1 flex-row flex-y-center">
+                                <input class="mobile-input" name="mobile" bindinput='changeInput' data-prop='mobile' style="width:100%" type="number" value="{{form.mobile}}"></input>
+                                <view bindtap="nextStep" style="width:40%">
+                                <text style="border:1px #ED514D solid;border-radius:20px;background-color:#ED514D;color:#fff;padding:5px 10px;font-size:13px">验证码</text>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="info-label info-content flex-row">
+                            <view  class="info-left flex-grow-0 flex-y-center required">验证码</view>
+                            <view class="info-right flex-grow-1 flex-row flex-y-center">
+                                <input name="yanzheng"  style="width:100%" type="number" value="{{form.mobile}}"></input>
+                                
+                            </view>
+                        </view>
+                        <view class="info-label info-content flex-row">
+                            <view class="info-left flex-grow-0 flex-y-center required">店铺名称</view>
+                            <view class="info-right flex-grow-1 flex-row flex-y-center">
+                                <input  name="dianpu"  style="width:100%" value=""></input>
+                            </view>
+                        </view>
+                        <view class="info-label info-content flex-row">
+                            <view class="info-left flex-grow-0 flex-y-center required">申请角色</view>
+                            <view class="info-right flex-grow-1 flex-row flex-y-center">
+                              初级分销商
+                            </view>
+                        </view>
+                        <view class="info-label info-content flex-row">
+                            <view bindtap="agree" class="info-agree flex-row flex-y-center">
+                                <input name="agree" style="display:none" value="{{agree}}"></input>
+                                <image src="{{img}}" style="width:32rpx;height:32rpx;"></image>
+                                <text style="margin-left:10rpx;">我已经阅读并了解</text>
+                                <view bindtap="agreement" style="color:#014c8c">【分销商申请协议】</view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="info-btn flex-row">
+                        <button class="flex-y-content info-btn-content" formType="submit">申请成为分销商</button>
+                    </view>
+                </form>
+                
+            </view>
+            <view class="step2" wx:else>
+                <view style="height:300rpx">
+                    
+                </view>
+                <view class="info">
+                    <view class="info-title">
+                        <image class="info-images" src="{{__wxapp_img.share.info.url}}"></image>
+                    </view>
+                    <view class="info-content">谢谢您的支持，请等待审核！</view>
+                    <view class="flex-row info-btn1">
+                        <navigator class="flex-y-content btn" openType="redirect" url="/pages/index/index">去商城逛逛</navigator>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="agree-modal flex-x-center flex-y-center {{show_modal?'':'hidden'}}">
+            <view style="width:600rpx;background-color:#fff;border-radius:20rpx;">
+                <view class="agree-head flex-x-center flex-y-center" style="height:100rpx;">分销协议</view>
+                <view class="agree-body">
+                    <text>{{share_setting.agree}}</text>
+                </view>
+                <view bindtap="close" class="agree-footer flex-x-center flex-y-center" style="">我已阅读</view>
+            </view>
+        </view>
+    </view>
+    <include src="/components/footer/footer"></include>
+</view>

@@ -1,0 +1,62 @@
+<view class="page">
+    <include src="/components/common/common"></include>
+    <include src="/components/header/header"></include>
+    <view class="body">
+        <view class="page {{__page_classes}}">
+            <view class="body after-navber">
+                
+                <view class="rotation-chart" style="width:100%;" >
+                    <swiper circular="true" class="swiper"  next-margin="20px" previous-margin="20px">
+                        <swiper-item wx:for="{{level_list}}" wx:key="{{item.id}}">    
+                          <view class="slide-image">
+                            <view style="padding:10px 20px;">
+                                <view style="color:#89262A;margin-bottom:10px;"><text style="color:#fff;font-size:20px;margin-right:10px">{{item.level_expire}}天</text>有效期</view>
+                                <view style="color:#89262A;margin-bottom:10px;"><text style="color:#fff">{{item.post_free_times}}次</text>免费配送，全场商品享<text style="color:#fff">{{item.discount}}折</text></view>
+                                <view style="color:#89262A;margin-bottom:10px;"><text style="color:#fff;font-size:25px">{{item.price}}</text>元<text style="text-decoration:line-through;margin-left:10px"></text></view> 
+                            </view>
+                            <view class="btn">
+                              <view bindtap="showDialogBtn" data-key="{{item.id}}" data-price="{{item.price}}" style="padding:5px;height:30px;">￥{{item.price}}立即购买</view>
+                                
+                            </view> 
+                          </view>
+                        </swiper-item>
+                    </swiper>
+                </view>
+                <view bindtap="hideModal" catchtouchmove="preventTouchMove" class="modal-mask" wx:if="{{showModal}}"></view>
+                    <view class="modal-dialog" wx:if="{{showModal}}">
+                        <view class="modal-footer">
+                            <view bindtap="pay" class="btn-cancel" data-key="{{current_key}}" data-payment="BALANCE_PAY" data-price="{{buy_price}}">余额支付</view>
+                            <view bindtap="pay" class="btn-confirm" data-key="{{current_key}}" data-payment="WECHAT_PAY" data-price="{{buy_price}}">线上支付</view>
+                        </view>
+                    </view>
+                <view bindtap="hideModal" catchtouchmove="preventTouchMove" id="modal-mask" wx:if="{{showModel}}"></view>
+                <view class="ci_shibai" wx:if="{{showModel}}">
+                    <view bindtap="hideModal" class="ci_close">
+                        <image src="{{__wxapp_img.integral.close.url}}" style="width:100%;height:100%;"></image>
+                    </view>
+                </view>
+                <view style="margin:30px 10px;">
+                    <view style="font-size:16px;font-weight: bold;margin-bottom:20px">会员中心</view>
+                    <view class="flex-row flex-x-center flex-y-center ">
+                      <view style="text-align: center" class="flex-grow-1">
+                        <image style="width:25px;height:25px;margin:10px" src="/images/yunfei.png"></image>
+                        <view style="font-weight: bold">免运费</view>
+                        <view style="font-size:11px;">购买无忧</view>
+                      </view>
+                      <view style="text-align: center"  class="flex-grow-1">
+                        <image style="width:25px;height:25px;margin:10px" src="/images/zhekou.png"></image>
+                        <view style="font-weight: bold">享折扣</view>
+                        <view style="font-size:11px;">购物更省钱</view>
+                      </view>
+                      <view style="text-align: center"  class="flex-grow-1">
+                        <image style="width:25px;height:25px;margin:10px" src="/images/24xiaoshi.png"></image>
+                        <view style="font-weight: bold">24小时服务</view>
+                        <view style="font-size:11px;">专线服务</view>
+                      </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <include src="/components/footer/footer"></include>
+</view>

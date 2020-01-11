@@ -1,0 +1,9 @@
+<view>
+  <view catchtouchmove="preventTouchMove" class="xinren" wx:if="{{showModal}}"></view>
+  <navigator>
+    <view>
+      <image class="quxiao" src="../../images/esc.png"></image>
+      <image class="img" src=""></image>
+    </view>
+  </navigator>
+</view>

@@ -1,0 +1,28 @@
+<view class="page">
+    <include src="/components/common/common"></include>
+    <include src="/components/header/header"></include>
+    <view class="body after-navber">
+        <view class="bottom-bar" style="display: none">
+            <navigator url="/pages/address-edit/address-edit">添加联系人</navigator>
+        </view>
+        <view class="address-list">
+            <view style="margin-bottom: 32rpx">
+                <view style="color: #888;text-align: center;padding: 32rpx 0;" wx:if="{{address_list.length==0}}">暂无联系人</view>
+                <block wx:else>
+                    <view bindtap="pickAddress" class="address-item" data-index="{{index}}" wx:for="{{address_list}}" wx:key="{{index}}">
+                        <view class="userinfo flex-row">
+                            <view class="flex-grow-1">联系人：{{item.name}}</view>
+                            <view class="flex-grow-0">手机号：{{item.mobile}}</view>
+                        </view>
+                    </view>
+                </block>
+            </view>
+            <view >
+                <view class="flex-grow-1 px-24">
+                    <navigator class="btn btn-red" url="/pages/address-edit/address-edit">添加联系人</navigator>
+                </view>
+            </view>
+        </view>
+    </view>
+    <include src="/components/footer/footer"></include>
+</view>

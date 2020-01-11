@@ -1,0 +1,54 @@
+
+.comment-count {
+    background: #fff;
+    margin-bottom: 20rpx;
+}
+
+.comment-count .comment-count-item {
+    text-align: center;
+    padding: 20rpx 0;
+    font-size: 9pt;
+}
+
+.comment-item {
+    background: #fff;
+    border-bottom: 1rpx solid #ecebeb;
+    padding: 32rpx 24rpx;
+}
+
+.comment-item .nickname {
+    padding-left: 24rpx;
+    height: 70rpx;
+    font-weight: bolder;
+}
+
+.comment-item .pic-list {
+    margin-left: -8rpx;
+    margin-top: -8rpx;
+}
+
+.comment-item .score-tag {
+    display: inline-block;
+    background: #eee;
+    font-size: 9pt;
+    padding: 4rpx 12rpx;
+    border-radius: 5rpx;
+}
+
+.active{
+  border: 1px #EE504C solid;
+  background-color: #fff;
+  color: #EE504C;
+  border-radius: 10px;
+    text-align: center;
+    margin: 0 5px;
+    font-size: 9pt;
+} 
+.noactive{
+   border: 1px #F4F4F4 solid;
+    background-color: #F4F4F4;
+    border-radius: 10px;
+    text-align: center;
+    margin: 0 5px;
+    font-size: 9pt;
+} 

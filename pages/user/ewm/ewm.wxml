@@ -1,0 +1,5 @@
+<view class='imgCon'>
+
+<image src='{{wx_qrcode}}' style='width:250px;height:250px;' ></image>
+
+</view>
