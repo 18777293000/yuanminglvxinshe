@@ -114,6 +114,13 @@
 					"id": -1,
 					"name": "pages/share-team/share-team",
 					"pathName": "pages/share-team/share-team",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/topic-list/topic-list",
+					"pathName": "pages/topic-list/topic-list",
 					"scene": null
 				}
 			]

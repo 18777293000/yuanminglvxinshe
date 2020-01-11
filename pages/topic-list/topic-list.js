@@ -7,7 +7,8 @@ Page({
         windowWidth: 375,
         scrollNavbarLeft: 0,
         currentChannelIndex: 0,
-        articlesHide: !1
+        articlesHide: !1,
+        time:[]
     },
     onLoad: function(a) {
         getApp().page.onLoad(this, a);
@@ -72,6 +73,27 @@ Page({
     },
     onShow: function() {
         getApp().page.onShow(this);
+        var t = this;
+        console.log(1,t);
+        setTimeout(() => {
+            var a = t.data.list.length;
+            for(var i=0;i<a;i++){
+                var b=t.data.list[i].addtime;
+                var dateTime = new Date(parseInt(b) * 1000)
+                var year = dateTime.getFullYear();
+                var month = dateTime.getMonth() + 1;
+                var day = dateTime.getDate();
+                var hour = dateTime.getHours();
+                var minute = dateTime.getMinutes();
+                var timeSpanStr = year + '-' + month + '-' + day + ' ' + hour + ':' + minute;
+                t.setData({
+                    time: t.data.time.concat(timeSpanStr)
+                });
+                //console.log(2,time[0]);
+            }
+            
+        }, 1000);
+        
     },
     onPullDownRefresh: function() {
         getApp().page.onPullDownRefresh(this);
